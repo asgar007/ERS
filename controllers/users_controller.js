@@ -10,7 +10,7 @@ module.exports.signIn = (req, res) => {
     // if user is not admin
     return res.redirect(`employee-dashboard/${req.user.id}`);
   }
-  return res.render('user_sign_in', {
+  return res.render('sign_in', {
     title: 'Review system | Sign In',
   });
 };
@@ -23,7 +23,7 @@ module.exports.signUp = (req, res) => {
     }
     return res.redirect(`employee-dashboard/${req.user.id}`);
   }
-  return res.render('user_sign_up', {
+  return res.render('sign_up', {
     title: 'Review system | Sign Up',
   });
 };
