@@ -2,7 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
-// Authentication using passport
+/* Authentication using passport */
 passport.use(
   new LocalStrategy(
     {
@@ -10,7 +10,7 @@ passport.use(
       passReqToCallback: true, // allows to set first argument as req
     },
     function (req, email, password, done) {
-      // find a user and establish the identity
+      /* find a user and establish the identity */
       User.findOne({ email: email }, async function (err, user) {
         if (err) {
           req.flash('error', err);

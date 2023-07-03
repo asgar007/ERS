@@ -1,6 +1,6 @@
 <% if(locals.user && locals.user.role ==='admin') {%>
 <div class="container-fluid p-4">
-  <h1 class="mx-auto text-center heading">All employees</h1>
+  <h1 class="mx-auto text-center heading">Employee Lists</h1>
   <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
     <div class="card" style="width: 18rem; margin-left: 10px;">
       <div class="card-body">
@@ -10,7 +10,11 @@
     </div>
     <% for (user of users) {%>
     <div class="card shadow m-2" style="width: 80rem">
+      <% if(user.role === 'admin') {%>
+        <h5 class="card-header" style="color: red;">Name: <%= user.username %></h5>
+      <%} else {%>
       <h5 class="card-header">Name: <%= user.username %></h5>
+      <% } %>
       <div class="card-body">
         <i class="fa-solid fa-user fa-2xl"></i> <br><br>
         <h6 class="card-subtitle mb-2 text-secondary">Email: <%= user.email %></h6>

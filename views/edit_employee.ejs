@@ -1,7 +1,7 @@
 <% if (locals.user) {%>
   <div class="d-flex flex-column flex-md-row justify-content-around  p-2">
     <div class="container mt-4 col-md-4 ">
-      <h4 class="text-center">Emloyee details</h4>
+      <h4 class="text-center heading">Employee details</h4>
 
       <form class="row g-3 mt-1 border rounded p-2 shadow mt-4" 
         style="--bs-border-opacity: 0.5"
@@ -10,13 +10,13 @@
 
         <!-- Name input -->
         <div class="form-outline ">
-          <label class="form-label" for="username">User name</label>
+          <label class="form-label heading" for="username">User name</label>
           <input type="text" id="name" name="username" class="form-control" value="<%= employee.username %>" required />
         </div>
 
         <!-- Email input -->
         <div class="form-outline ">
-          <label class="form-label" for="email">Email address</label>
+          <label class="form-label heading" for="email">Email address</label>
           <input type="email" id="email" name="email" class="form-control" value="<%= employee.email %>" readonly
             required />
         </div>
@@ -27,7 +27,7 @@
 
         <!-- role input -->
         <div class="form-outline mb-2">
-          <label class="form-label" for="role">Select Role</label>
+          <label class="form-label heading" for="role">Select Role</label>
           <select class="form-select" id="role" name="role" aria-label="Default select example" required>
             <option selected value="employee">Employee</option>
             <option value="admin">Admin</option>
@@ -44,19 +44,19 @@
 
     <!-- Reviews section -->
     <div class="container mt-4 col-md-4 ">
-      <h4 class="text-center">Feedbacks given by other users</h4>
+      <h4 class="text-center heading">Feedbacks by other users</h4>
 
       <% for(review of reviewsFromOthers) {%>
         <div>
           <form action="/review/update-review/<%= review._id%>" method="POST" class="rounded p-3 mt-4 border shadow" >
             
             <div class="form-outline mb-2">
-              <label for="recipient" class="form-label">From</label>
+              <label for="recipient" class="form-label heading">From</label>
               <input type="text" id="recipient" class="form-control" value="<%= review.reviewer.email %>" readonly>
             </div>
 
             <div>
-              <label for="feedback" class="form-label">Feedback</label>
+              <label for="feedback" class="form-label heading">Feedback</label>
               <textarea class="form-control " id="feedback-form" name="feedback" rows="3"><%=review.review %></textarea>
             </div>
 
