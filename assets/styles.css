@@ -1,3 +1,19 @@
 body{
     background-color: #F0F8FF;
 }
+
+/* NAVBAR */
+
+/* HEADER */
+.heading{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.username{
+    background-color: rgb(208, 248, 235);
+}
+
+.login-button{
+    width: 30%;
+}

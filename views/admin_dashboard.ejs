@@ -1,46 +1,49 @@
 <% if(locals.user && locals.user.role ==='admin') {%>
 <div class="container-fluid p-4">
-  <h1 class="mx-auto text-center">All employees</h1>
+  <h1 class="mx-auto text-center heading">All employees</h1>
   <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
-    <% for (user of users) {%>
-    <div class="card shadow m-2" style="width: 19rem">
+    <div class="card" style="width: 18rem; margin-left: 10px;">
       <div class="card-body">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/7277/7277044.png"
-          alt=""
-          style="width: 40px"
-        />
-        <h5 class="card-title"><%= user.username %></h5>
-        <h6 class="card-subtitle mb-2 text-secondary"><%= user.email %></h6>
+        <h5 class="card-title" style="color: red;">Add an Employee</h5>
+        <a href="/add-employee" class="nav-link fw-semibold"><i class="fa-solid fa-plus"></i>  Click Here</a>
+      </div>
+    </div>
+    <% for (user of users) {%>
+    <div class="card shadow m-2" style="width: 80rem">
+      <h5 class="card-header">Name: <%= user.username %></h5>
+      <div class="card-body">
+        <i class="fa-solid fa-user fa-2xl"></i> <br><br>
+        <h6 class="card-subtitle mb-2 text-secondary">Email: <%= user.email %></h6>
         <p class="card-subtitle mb-2 text-muted">Role: <%= user.role %></p>
-        <div class="d-flex flex-wrap justify-content-between">
-          <!-- delete button -->
-          <a
-            href="/destroy/<%= user._id %>"
-            class="btn btn-danger mb-1"
-            style="width: 48%"
-            ><i class="fa-solid fa-trash"></i> Delete</a
-          >
-          <!-- edit button -->
+        <div class="d-flex flex-row justify-content-between">
+          <!-- EDIT BUTTON-->
           <a
             href="/edit-employee/<%= user._id %>"
-            class="btn btn-primary mb-1"
-            style="width: 48%"
+            class="btn btn-success mb-1"
+            style="width: 25%"
             ><i class="fa-solid fa-pen-to-square"></i> Edit</a
           >
 
-          <!-- asign review button -->
+          <!-- REVIEW BUTTON -->
           <a
             href=""
-            class="btn btn-warning mb-1 my-1"
-            style="width: 100%"
+            class="btn btn-info mb-1 my-1"
+            style="width: 25%"
             data-bs-toggle="modal"
             data-bs-target="#user<%= user.id %>"
             data-bs-whatever="@mdo"
             ><i class="fa-solid fa-file"></i> Assign review</a
           >
 
-          <!-- Modal for assigning review -->
+          <!-- DELETE BUTTON -->
+          <a
+            href="/destroy/<%= user._id %>"
+            class="btn btn-danger mb-1"
+            style="width: 25%"
+            ><i class="fa-solid fa-trash"></i> Delete</a
+          >
+
+          <!-- MODEL FOR ASSIGN -->
           <div
             class="modal fade"
             id="user<%= user.id %>"
